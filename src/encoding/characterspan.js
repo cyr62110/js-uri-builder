@@ -1,16 +1,34 @@
+import UriException from "../exception/UriException";
+
 /**
  *
  */
 export default class CharacterSpan {
 
     /**
-     * Create a new {CharacterSpan} including all characters between startCharCode and endCharCode.
-     * @param startCharCode Char code of the first character included in the span.
-     * @param endCharCode Char code of the last character included in the span. Must be greater than or equals to startCharCode.
+     * Create a new {CharacterSpan} including all characters between startCharacter and endCharacter.
+     * @param {String|Number} startCharacter First character (or char code) included in the span. Inclusive.
+     * @param {String|Number} endCharacter Last character (or char code) included in the span. Inclusive.
      */
-    constructor(startCharCode, endCharCode) {
-        this._startCharCode = startCharCode;
-        this._endCharCode = endCharCode;
+    constructor(startCharacter, endCharacter) {
+        this._startCharCode = CharacterSpan._getCharCode(startCharacter);
+        this._endCharCode = CharacterSpan._getCharCode(endCharacter);
+        if (this._startCharCode > this._startCharCode) {
+            throw new UriException("startCharacter is greater than endCharacter");
+        }
+    }
+
+    /**
+     * Return the char code of the character.
+     * @param {String|Number} character String containing the character or char code of the character.
+     * @return {Number} Char code of the character.
+     */
+    static _getCharCode(character) {
+        if (typeof character === 'string' || character instanceof String) {
+            return character.charCodeAt(0);
+        } else {
+            return character;
+        }
     }
 
     /**
@@ -38,12 +56,7 @@ export default class CharacterSpan {
      * @return {Boolean} true if span includes the character, false otherwise.
      */
     contains(character) {
-        let charCode;
-        if (character instanceof String) {
-            charCode = character.charCodeAt(0);
-        } else {
-            charCode = character;
-        }
+        let charCode = CharacterSpan._getCharCode(character);
         return charCode >= this._startCharCode && charCode <= this._endCharCode;
     }
 }
