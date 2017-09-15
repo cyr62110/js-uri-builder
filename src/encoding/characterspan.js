@@ -20,7 +20,7 @@ export default class CharacterSpan {
      * @return {CharacterSpan} a new span.
      */
     static newRange(startCharacter, endCharacter) {
-
+        return new CharacterSpan(startCharacter, endCharacter);
     }
 
     /**
@@ -29,7 +29,7 @@ export default class CharacterSpan {
      * @return {CharacterSpan} a new span.
      */
     static newSingleCharacter(character) {
-
+        return new CharacterSpan(character, character);
     }
 
     /**
