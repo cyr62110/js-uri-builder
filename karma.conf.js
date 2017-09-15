@@ -3,17 +3,16 @@ module.exports = function(config) {
         basePath: '',
         frameworks: ['mocha', 'chai', 'sinon'],
         files: [
-            './test/**/*.spec.js'
+            { pattern: './test/**/*.spec.js', watched: false }
         ],
         exclude: [
         ],
         preprocessors: {
-            './src/**/*.js': ['webpack', 'sourcemap'],
             './test/**/*.spec.js': ['webpack', 'sourcemap']
         },
         webpack: require('./webpack.config.js'),
         webpackMiddleware: {
-            stats: 'errors-only'
+            noInfo: true
         },
         reporters: ['progress'],
         port: 9876,
