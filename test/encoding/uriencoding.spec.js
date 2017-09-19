@@ -1,3 +1,8 @@
-/**
- * Created by cyr62110 on 19/09/2017.
- */
+describe("UriEncoding", function() {
+
+    describe("encode", () => {
+        it("pass to UriEncoder", () => {
+
+        });
+    });
+});
