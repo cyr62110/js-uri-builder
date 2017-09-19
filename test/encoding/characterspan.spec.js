@@ -1,14 +1,12 @@
 import CharacterSpan from "../../src/encoding/characterspan";
-import UriException from "../../src/exception/UriException";
 
 describe("CharacterSpan", function() {
 
-    /** WIP
     describe("constructor", () => {
         it("throws if start > end", () => {
-            expect(CharacterSpan.newRange('b', 'a')).to.throw(UriException);
+            expect(() => { new CharacterSpan('b', 'a') }).to.throw();
         });
-    }); */
+    });
 
     describe("_getCharCode", () => {
         it("works", () => {

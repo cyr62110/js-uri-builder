@@ -13,7 +13,7 @@ export default class CharacterSpan {
     constructor(startCharacter, endCharacter) {
         this._startCharCode = CharacterSpan._getCharCode(startCharacter);
         this._endCharCode = CharacterSpan._getCharCode(endCharacter);
-        if (this._startCharCode > this._startCharCode) {
+        if (this._startCharCode > this._endCharCode) {
             throw new UriException("startCharacter is greater than endCharacter");
         }
     }
