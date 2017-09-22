@@ -16,7 +16,8 @@ export default class UriEncoding {
     }
 
     /**
-     * Returns the default implementation of UriEncoding.
+     * Returns the default implementation of UriEncoding that will be used by the library
+     * to encode/decode uri components.
      *
      * @return {UriEncoding} Default UriEncoding.
      */
