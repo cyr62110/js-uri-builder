@@ -1,4 +1,5 @@
 import PathSegmentValidator from "../../src/path/pathsegmentvalidator";
+import {PCHAR} from "../../src/uri/urivalidator";
 
 describe("PathSegmentValidator", () => {
    describe("validate", () => {

@@ -7,7 +7,7 @@ import UriException from "../exception/UriException";
 export default class PathSegmentValidator {
 
     constructor() {
-        this._pathSegmentPattern = new RegExp('(' + PCHAR + ')+');
+        this._pathSegmentPattern = new RegExp('^(' + PCHAR + ')+$');
     }
 
     /**
