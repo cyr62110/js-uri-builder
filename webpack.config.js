@@ -18,5 +18,5 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: "js-uri-builder.min.js"
     },
-    devtool: 'source-map'
+    devtool: 'inline-source-map'
 };
